@@ -23,10 +23,20 @@ def main():
         guitar = Guitar(name, year, cost)
         guitars.append(guitar)
     in_file.close()
+
+    name_of_guitar = input("Name of Guitar:  ")
+    year_of_guitar = input("Year when the guitar was made:  ")
+    cost_of_guitar = input("Cost of Guitar:  ")
+    user_guitar = Guitar(name_of_guitar, int(year_of_guitar), float(cost_of_guitar))
+    guitars.append(user_guitar)
+
     guitars.sort()
     for guitar in guitars:
         print(guitar)
 
+    out_file = open("guitars.csv", "a")
+    print(f"{name_of_guitar},{year_of_guitar},{cost_of_guitar}", file=out_file)
+    out_file.close()
 
 
 main()
